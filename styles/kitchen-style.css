@@ -1,0 +1,132 @@
+
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    overflow: hidden; /* Evita barras de scroll */
+}
+
+
+.floating-back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    font-size: 0.7rem;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+
+.kitchen-header {
+    margin-top: 60px; /* Espacio para el botón volver */
+    width: 90%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.kitchen-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+    font-size: 0.7rem;
+    text-shadow: 2px 2px 0px #000;
+}
+
+#kitchen-hunger-bar {
+    width: 150px;
+    height: 20px !important;
+    margin: 0 !important;
+}
+
+/* LAYOUT PRINCIPAL */
+.kitchen-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+}
+
+/* DISEÑO DEL ESTANTE DE COMIDA */
+.food-shelf {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 4px solid #fff;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    width: 95%;
+    max-width: 700px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    z-index: 20;
+}
+
+.food-item {
+    font-size: 3rem;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.2s;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    filter: drop-shadow(2px 4px 0px rgba(0,0,0,0.5));
+}
+
+.food-item:hover { transform: scale(1.15) rotate(5deg); background: rgba(255,255,255,0.2); }
+.food-item:active { cursor: grabbing; transform: scale(0.9); }
+
+/* ÁREA DEL DINOSAURIO */
+.dino-kitchen-area {
+    flex-grow: 1; /* Ocupa todo el espacio restante */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alineado abajo */
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 10px; 
+}
+
+/* GLOBO DE TEXTO */
+.dino-kitchen-area .nes-balloon {
+    position: absolute;
+    top: 10px; /* Pegado arriba del área del dino (debajo del estante) */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    z-index: 30;
+    width: max-content;
+    max-width: 80%;
+}
+
+.dino-kitchen-area .pixel-art {
+    
+    /* limitamos si se sale de la pantalla */
+    max-height: calc(100vh - 240px); /* Altura disponible aproximada */
+    max-width: 95vw;
+    
+    object-fit: contain;
+    
+    /* Manten la propiedad de pixeleado */
+    image-rendering: pixelated;
+}

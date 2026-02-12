@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cocina</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/principal-style.css">
+    <link rel="stylesheet" href="./styles/kitchen-style.css">
+</head>
+<body>
+
+    <button id="btn-back" class="nes-btn is-error floating-back-btn">
+        Volver al cuarto principal
+    </button>
+
+    <header class="kitchen-header">
+        <div class="nes-container is-rounded is-dark">
+            <p>Cocina de <span class="pet-name-display" style="color:#f7d51d;">Carno</span></p>
+            
+            <div class="kitchen-stat">
+                <span>🍗 Saciedad:</span>
+                <progress class="nes-progress is-success" id="kitchen-hunger-bar" value="100" max="100"></progress>
+            </div>
+            
+            <p style="font-size: 0.6rem; margin-top: 10px; color: #aaa;">Arrastra la comida hacia él</p>
+        </div>
+    </header>
+
+    <div class="kitchen-layout">
+        <div class="food-shelf">
+            <div class="food-item" draggable="true" data-val="10">🍖</div>
+            <div class="food-item" draggable="true" data-val="5">🥚</div>
+            <div class="food-item" draggable="true" data-val="15">🐟</div>
+            <div class="food-item" draggable="true" data-val="8">🍗</div>
+            <div class="food-item" draggable="true" data-val="20">🐐</div>
+            <div class="food-item" draggable="true" data-val="-5">🥬</div> </div>
+
+        <div class="dino-kitchen-area">
+             <div class="nes-balloon from-left">
+                <p id="kitchen-msg">¡Tengo hambre!</p>
+            </div>
+            <img id="dino-kitchen" src="" class="pixel-art">
+        </div>
+    </div>
+
+    <script src="./logic/model/persistence.js"></script>
+    <script src="./logic/app/kitchen.js"></script>
+</body>
+</html>
