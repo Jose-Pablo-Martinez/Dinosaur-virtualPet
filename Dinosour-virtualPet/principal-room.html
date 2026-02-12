@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu mascota carnotaurus</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/principal-style.css">
+</head>
+<body>
+
+    <dialog class="nes-dialog is-dark is-rounded" id="evolution-modal">
+        <form method="dialog">
+            <p class="title" style="color: #f7d51d;">¡Evolución!</p>
+            <p id="evo-message" style="margin-top: 15px; line-height: 1.5;">
+                FELICIDADES...
+            </p>
+            <menu class="dialog-menu">
+                <button class="nes-btn is-primary">¡Genial!</button>
+            </menu>
+        </form>
+    </dialog>
+
+    <header>
+        <div class="nes-container is-dark with-title is-centered">
+            <p class="title">Estado de <span class="pet-name-display">Carno</span></p>
+            <div class="stats-row">
+                <div id="stat-temp" class="stat-item hidden">
+                    <span>🌡️ Temp.</span>
+                    <progress class="nes-progress is-warning" id="temp-bar" value="100" max="100"></progress>
+                </div>
+                <div id="stat-hunger" class="stat-item">
+                    <span>🍗 Saciedad</span>
+                    <progress class="nes-progress is-success" id="hunger-bar" value="100" max="100"></progress>
+                </div>
+                <div id="stat-happiness" class="stat-item">
+                    <span>❤️ Felicidad</span>
+                    <progress class="nes-progress is-error" id="happiness-bar" value="100" max="100"></progress>
+                </div>
+                <div class="stat-item full-width">
+                    <span>⭐ Progreso</span>
+                    <progress class="nes-progress is-primary" id="growth-bar" value="0" max="100"></progress>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="game-container">
+        <div class="dino-wrapper">
+             <div class="nes-balloon from-left info-bubble">
+                <p id="dino-thoughts">...</p>
+            </div>
+            <img id="dino-pet" class="pixel-art" src="" alt="Dino">
+        </div>
+    </div>
+
+    <div class="menu-actions">
+        <section class="nes-container with-title is-centered">
+            <p class="title">Acciones</p>
+            <div class="buttons-grid">
+                <button id="btn-warm" class="nes-btn is-warning hidden">🔥 Calentar</button>
+                <button id="btn-go-kitchen" class="nes-btn is-warning">🍖 Cocina</button>
+                <button id="btn-pet" class="nes-btn is-error">❤️ Mimos</button>
+            </div>
+        </section>
+    </div>
+
+    <footer class="system-footer">
+        <button id="btn-save" class="nes-btn is-success">💾 Guardar</button>
+        <button id="btn-reset" class="nes-btn is-disabled">🗑️ Reset</button>
+    </footer>
+
+    <!-- Carga de la lógica del juego -->
+    <script src="./logic/model/config.js"></script>
+    <script src="./logic/model/persistence.js"></script>
+    <script src="./logic/model/verification.js"></script>
+    <script src="./logic/model/game.js"></script>
+    <script src="./logic/view/view.js"></script>
+    <script src="./logic/controller/controller.js"></script> 
+    <script src="./logic/app/main.js"></script>
+</body>
+</html>

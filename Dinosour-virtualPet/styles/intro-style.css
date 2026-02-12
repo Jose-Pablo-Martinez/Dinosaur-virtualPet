@@ -1,0 +1,78 @@
+body.intro-page {
+    background-color: #212529;
+    margin: 0;
+    padding: 0;
+    
+    display: flex;             
+    justify-content: center;    
+    align-items: center;        
+    min-height: 100vh;          /* Obliga al body a medir toda la pantalla */
+    width: 100%;
+    
+    box-sizing: border-box;
+    overflow: hidden; /* Evita barras de scroll innecesarias */
+}
+
+/* Contenedor del menu */
+.intro-container {
+    width: 90%;          /* Ocupa casi todo el ancho en móviles */
+    max-width: 500px;    /* no más de 500px en PC */
+    padding: 20px;      
+}
+
+/* Estilos visuales de la caja NES */
+.intro-container .nes-container.with-title {
+    background-color: #212529;
+    padding: 2.5rem 2rem; /* Más espacio interno */
+    border-width: 4px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
+}
+
+.intro-container .title {
+    background-color: #212529 !important;
+    color: #f7d51d; /* Amarillo para resaltar */
+    padding: 0 15px;
+    margin-bottom: 0 !important;
+}
+
+/* Animación del corazón */
+.intro-container .nes-icon.heart {
+    transform: scale(3); /* Corazón grande */
+    margin: 40px 0;    
+    animation: beat 1.5s infinite ease-in-out;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(3); }
+    50% { transform: scale(3.5); }
+}
+
+/* Campo para poner el nombre */
+.intro-container .nes-field {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: left; /* El texto "Nombre" se lee mejor a la izquierda */
+}
+
+.intro-container label {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+¿
+.intro-container .nes-input {
+    background-color: #333;
+    color: #fff;
+    border-width: 3px;
+}
+
+
+.intro-container #btn-start {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
