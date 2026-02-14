@@ -148,22 +148,42 @@ body {
         flex-shrink: 0; /* Que no se aplaste */
         padding: 5px;
         z-index: 10;
+        margin-top: 30px; /*Espacio extra para que el boton de volver no tape el titulo*/
     }
 
 
     /* Modificación del estante de comida */
     .food-shelf {
         flex-shrink: 0;
-        height: 80px;
-        order: -1; /* Ponemos la comida arriba para arrastrar hacia abajo (opcional) */
-        margin-bottom: 10px;
-        overflow-x: auto;
+        height: auto;       /* Altura automática según el contenido */
+        min-height: 90px;   /* Mínimo para que quepan los dedos */
+        
+        display: flex;      /* Aseguramos flexbox */
+        flex-direction: row; 
+        flex-wrap: nowrap;  /* Para que no bajen a la siguiente línea */
+        overflow-x: auto;   /* Scroll horizontal */
+        justify-content: flex-start; /* Alinear al inicio */
+        align-items: center;
+        
+        gap: 15px;          /* Espacio entre comidas */
+        padding: 10px 20px; /* Relleno para que no se corten los bordes */
+        width: 100%;        
+        box-sizing: border-box;
     }
 
     .food-item {
+        flex: 0 0 auto;    /* Evitar que se aplasten los iconos */
+        width: 60px;
+        height: 60px;
         font-size: 2.5rem;
-        width: 60px;       
-        height: 60px;   
+        
+        /* Centrar el icono dentro del cuadro */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #ccc; /*para ver mejor el área de toque */
+        border-radius: 10px;
+        background: rgba(255,255,255,0.1);
     }
 
     /* Area del dinosaurio */
@@ -174,17 +194,26 @@ body {
         align-items: center; /* Centrar dino vertical y horizontalmente */
         position: relative;
         width: 100%;
-        min-height: 0; /* Truco de Flexbox para evitar desbordes */
+        overflow: hidden; /*Evita que si crece mucho el dino rompa todo*/
     }
 
     /* Ajuste del globo de texto */
     .dino-kitchen-area .nes-balloon {
         position: absolute;
-        top: 10%; 
-        width: 90%;
-        left: 5%;
+        top: 0; /*Justo arriba del dino o el techo*/
+        
+        /* centrando los elementos de forma absoluta */
+        left: 50%;        
+        transform: translateX(-50%); 
+        
+        /*Adaptar al texto sin salirse de la pantalla*/
+        width: auto;     
+        min-width: 200px; 
+        max-width: 90%;   
+        
         margin: 0 !important;
         z-index: 20;
+        text-align: center; 
     }
 
     /*Ajuste del tamaño del dinosaurio*/
