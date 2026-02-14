@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof Persistence === 'undefined' || 
             typeof Controller === 'undefined' || 
             typeof elements === 'undefined') {
-            throw new Error("Error crítico: Faltan módulos del sistema (Persistence/Controller/View). Revisa el index.html");
+            throw new TypeError("Error crítico: Faltan módulos del sistema (Persistence/Controller/View). Revisa el index.html");
         }
 
         // Verificación del inicio del DOM
         if (!elements.img || !elements.nameDisplay) {
-            throw new Error("Error de UI: No se encontraron elementos vitales en el HTML.");
+            throw new TypeError("Error de UI: No se encontraron elementos vitales en el HTML.");
         }
 
         console.log("Iniciando Sistema Tu mascota carnotaurus...");

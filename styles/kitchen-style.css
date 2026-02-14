@@ -137,46 +137,65 @@ body {
     
     /* Ajustar altura para que quepa todo */
     .kitchen-layout {
-        height: 100dvh;
-        padding-bottom: 20px;
+        height: 100dvh; 
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 0;
+        overflow: hidden; /* Evitar scroll */
     }
 
     .kitchen-header {
-        margin-top: 10px; /* Menos margen arriba */
-        width: 95%;
+        flex-shrink: 0; /* Que no se aplaste */
+        padding: 5px;
+        z-index: 10;
     }
-    .kitchen-header .nes-container {
-        padding: 0.5rem !important; /* Menos relleno interno */
-    }
+
 
     /* Modificación del estante de comida */
     .food-shelf {
-        height: 90px; /* Altura fija cómoda */
-        margin-top: 5px;
-        justify-content: flex-start; 
-        overflow-x: auto; 
+        flex-shrink: 0;
+        height: 80px;
+        order: -1; /* Ponemos la comida arriba para arrastrar hacia abajo (opcional) */
+        margin-bottom: 10px;
+        overflow-x: auto;
     }
 
     .food-item {
         font-size: 2.5rem;
         width: 60px;       
-        height: 60px;
-        min-width: 60px;   
+        height: 60px;   
     }
 
-    /* Modificación del dinosaurio */
-    .dino-kitchen-area .pixel-art {
-        /* En móvil se quiere que el dino ocupe el espacio libre */
-        max-height: 50vh; 
-        width: auto;
-        max-width: 90%;
+    /* Area del dinosaurio */
+    .dino-kitchen-area{
+        flex-grow: 1; /* Ocupar todo el espacio sobrante vertical */
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Centrar dino vertical y horizontalmente */
+        position: relative;
+        width: 100%;
+        min-height: 0; /* Truco de Flexbox para evitar desbordes */
     }
 
     /* Ajuste del globo de texto */
     .dino-kitchen-area .nes-balloon {
-        top: 0px;
-        font-size: 0.6rem;
-        padding: 0.4rem !important;
+        position: absolute;
+        top: 10%; 
+        width: 90%;
+        left: 5%;
+        margin: 0 !important;
+        z-index: 20;
+    }
+
+    /*Ajuste del tamaño del dinosaurio*/
+    .dino-kitchen-area .pixel-art{
+        width: 80%;       /* Ocupar 80% del ancho de la pantalla */
+        height: auto;     /* Mantener proporción */
+        max-height: 60vh; /* Que no se salga de la pantalla */
+        object-fit: contain;
+        
+        /* Asegurar renderizado nítido al escalar */
+        image-rendering: pixelated;
     }
 
     .floating-back-btn {

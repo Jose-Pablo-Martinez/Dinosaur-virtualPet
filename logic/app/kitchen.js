@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dinoImg.style.transform = "scale(1) rotate(0deg)";
         } else {
             // Convertir a número
-            const val = parseInt(foodValue);
+            const val = Number.parseInt(foodValue);
             
             // Sumar saciedad y felicidad
             state.hunger = Math.min(100, state.hunger + val);
@@ -81,11 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Simulación del drag an drop en celular
 function setupMobileTouch(item, dinoImg, callbackFeed) {
-    let originPos = { x: 0, y: 0 }; // Recuerda donde esta la comida
+    let originPos // Recuerda donde esta la comida
 
     item.addEventListener('touchstart', (e) => {
         // Evitar scroll mientras arrastramos
-        // e.preventDefault();
+        e.preventDefault();
         
         // Guardamos posición original
         const rect = item.getBoundingClientRect();
@@ -95,7 +95,9 @@ function setupMobileTouch(item, dinoImg, callbackFeed) {
         item.style.position = 'fixed'; 
         item.style.zIndex = '1000';
         item.style.transition = 'none'; // Sin animación para que siga al dedo rápido
-        
+        //Permite que el navegador vea a travez del objeto comida
+        item.style.pointerEvents = 'none';
+
         // Colocarlo bajo el dedo inmediatamente
         const touch = e.touches[0];
         moveItemTo(item, touch.clientX, touch.clientY);
